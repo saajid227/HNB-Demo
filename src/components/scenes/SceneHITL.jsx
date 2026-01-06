@@ -1,14 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { User, AlertTriangle } from 'lucide-react';
 import { styles } from '../../constants/colors';
 
 const SceneHITL = ({ onNext, addLog }) => {
+    const [initialized, setInitialized] = useState(false);
+
     useEffect(() => {
+        // Only run once when component mounts
+        if (initialized) return;
+        setInitialized(true);
+
         setTimeout(() => {
             addLog('Orchestrator', 'Context Switch: OFFICER_DASHBOARD', true);
             setTimeout(onNext, 2500);
         }, 3000);
-    }, []);
+    }, [initialized, addLog, onNext]);
 
     return (
         <div className="flex flex-col h-full justify-center items-center p-8 text-center space-y-6">

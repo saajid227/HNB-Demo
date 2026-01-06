@@ -6,6 +6,7 @@ const SceneChatSupport = ({ onNext, onEnd, addLog }) => {
     const [messages, setMessages] = useState([]);
     const [userInput, setUserInput] = useState('');
     const [showContinue, setShowContinue] = useState(false);
+    const [initialized, setInitialized] = useState(false);
     const messagesEndRef = useRef(null);
 
     const scrollToBottom = () => {
@@ -13,6 +14,10 @@ const SceneChatSupport = ({ onNext, onEnd, addLog }) => {
     };
 
     useEffect(() => {
+        // Only run once when component mounts
+        if (initialized) return;
+        setInitialized(true);
+
         // Initial logs
         addLog('Support Agent', 'Chat session opened for Nimal', true);
         addLog('Queue Manager', 'User placed in HITL Queue Level 2', false);
@@ -33,7 +38,7 @@ const SceneChatSupport = ({ onNext, onEnd, addLog }) => {
                 setShowContinue(true);
             }, 1000);
         }, 500);
-    }, [addLog]);
+    }, [initialized, addLog]);
 
     useEffect(() => {
         scrollToBottom();
