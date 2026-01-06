@@ -1,0 +1,146 @@
+/* HNB Agentic Journey App Styles - STRICT PALETTE ONLY */
+
+/* Ensure buttons are styled - ONLY palette colors */
+button {
+  border: 0;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, sans-serif;
+  outline: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Input styles - ONLY palette colors */
+input, textarea {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #1957A6;
+  opacity: 0.6;
+}
+
+input:focus, textarea:focus {
+  outline: 2px solid #FADD02;
+  outline-offset: 2px;
+}
+
+/* Remove any default gray backgrounds */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  background-color: #FFFFFF;
+  border-color: #2FB0E4;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: #FADD02;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  border: 0;
+  background: #1957A6;
+}
+
+/* Range slider - ONLY palette colors */
+input[type="range"] {
+  appearance: none;
+  height: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background: #BADFEC;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  background: #1957A6;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 0.5rem;
+  border-radius: 0.5rem;
+  background: #BADFEC;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 0.5rem;
+  border-radius: 0.5rem;
+  background: #BADFEC;
+}
+
+/* Animation utilities - pre-defined to avoid inline styles */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Helper classes for palette-only backgrounds */
+.bg-gradient-deep-primary {
+  background: linear-gradient(135deg, #1957A6 0%, #2FB0E4 100%);
+}
+
+.bg-gradient-primary-soft {
+  background: linear-gradient(135deg, #2FB0E4 0%, #BADFEC 100%);
+}
